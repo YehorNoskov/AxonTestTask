@@ -16,22 +16,38 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    dataBinding {
+        enabled true
+    }
 }
 
 ext {
     appcompatVersion = '1.1.0-alpha04'
+    recyclerVersion = '1.1.0-alpha04'
+    materialVersion = '1.1.0-alpha05'
 
     retrofit2Version = '2.4.0'
     okhttp3LoggingInterceptorVersion = '3.5.0'
+    frescoVersion = '1.11.0'
+
 }
 
 dependencies {
 
     implementation "androidx.appcompat:appcompat:$appcompatVersion"
+    implementation "androidx.recyclerview:recyclerview:$recyclerVersion"
+    implementation "com.google.android.material:material:$materialVersion"
 
     implementation "com.squareup.retrofit2:retrofit:$retrofit2Version"
     implementation "com.squareup.retrofit2:converter-gson:$retrofit2Version"
     implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofit2Version"
     implementation "com.squareup.okhttp3:logging-interceptor:$okhttp3LoggingInterceptorVersion"
+
+    implementation "com.facebook.fresco:fresco:$frescoVersion"
+
 
 }
