@@ -19,6 +19,8 @@ import app.axon.test.databinding.UserItemBinding;
 public final class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.UserViewHolder> {
 
     private List<UserModel> items = new ArrayList<>();
+    private UsersAdapter.ClickListener clickListener;
+
 
     @NonNull
     @Override
@@ -42,6 +44,11 @@ public final class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.UserVi
         }
         holder.layout.tvUserEmail.setText(model.getUserEmail());
 
+        holder.layout.linearLayout.setOnClickListener(v -> {
+            if (clickListener != null) {
+                clickListener.onItemClicked(model);
+            }
+        });
     }
 
     @Override
@@ -62,6 +69,14 @@ public final class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.UserVi
             this.items.addAll(items);
         }
         notifyDataSetChanged();
+    }
+
+    interface ClickListener {
+        void onItemClicked(UserModel userModel);
+    }
+
+    public void setClickListener(UsersAdapter.ClickListener clickListener) {
+        this.clickListener = clickListener;
     }
 
     class UserViewHolder extends RecyclerView.ViewHolder {

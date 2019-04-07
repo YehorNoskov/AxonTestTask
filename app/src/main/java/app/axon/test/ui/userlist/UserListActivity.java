@@ -1,5 +1,6 @@
 package app.axon.test.ui.userlist;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.facebook.drawee.backends.pipeline.Fresco;
@@ -9,9 +10,11 @@ import java.util.List;
 import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import app.axon.test.BuildConfig;
 import app.axon.test.R;
 import app.axon.test.databinding.ActivityUserListBinding;
 import app.axon.test.ui.base.BaseActivity;
+import app.axon.test.ui.userdetails.UserDetailsActivity;
 
 import static app.axon.test.utills.SnackBar.showSnackBar;
 
@@ -20,6 +23,8 @@ public class UserListActivity extends BaseActivity implements UserListContract.V
     private UserListPresenter presenter;
     private ActivityUserListBinding layout;
     private UsersAdapter mUsersAdapter;
+    public static final String EXTRA_USER_INFO = BuildConfig.APPLICATION_ID + "EXTRA_USER_INFO";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +57,11 @@ public class UserListActivity extends BaseActivity implements UserListContract.V
             presenter.refresh();
         });
 
+        mUsersAdapter.setClickListener(userModel -> {
+            Intent intent = new Intent(this, UserDetailsActivity.class);
+            intent.putExtra(EXTRA_USER_INFO, userModel);
+            startActivity(intent);
+        });
     }
 
     @Override

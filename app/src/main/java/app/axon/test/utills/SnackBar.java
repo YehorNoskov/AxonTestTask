@@ -18,6 +18,5 @@ public class SnackBar {
                     Intent myIntent = new Intent(Settings.ACTION_WIRELESS_SETTINGS);
                     context.startActivity(myIntent);
                 }).show();
-
     }
 }
