@@ -1,11 +1,11 @@
 package app.axon.test.ui.userdetails;
 
-import android.app.Activity;
 import android.os.Bundle;
 
+import androidx.appcompat.app.AppCompatActivity;
 import app.axon.test.R;
 
-public class UserDetailsActivity extends Activity {
+public class UserDetailsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
