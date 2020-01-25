@@ -11,4 +11,28 @@
     <style name="AppThemeSplash" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:windowBackground">@drawable/splash_screen</item>
     </style>
+
+    <style name="TextUserName">
+        <item name="android:textColor">@color/colorUserName</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="TextUserGender">
+        <item name="android:textColor">@color/colorUserGender</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="TextUserInfo">
+        <item name="android:textColor">@color/colorUserInfo</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="TextNoInternet">
+        <item name="android:textColor">@color/colorUserInfo</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">20sp</item>
+    </style>
 </resources>

@@ -5,5 +5,9 @@
     <color name="colorAccent">#D81B60</color>
 
     <color name="colorAvatarPlaceholder">#d7d7d7</color>
+    <color name="colorUserName">#000000</color>
+    <color name="colorUserGender">#aaa</color>
+    <color name="colorUserInfo">#6F6E6E</color>
+
 
 </resources>
