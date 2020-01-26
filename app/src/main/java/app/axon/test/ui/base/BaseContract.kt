@@ -1,7 +1,5 @@
 package app.axon.test.ui.base
 
-import androidx.annotation.StringRes
-
 open class BaseContract {
 
     interface Presenter<T : View> {
@@ -14,7 +12,7 @@ open class BaseContract {
 
         fun showMessage(message: String)
 
-        fun showMessage(@StringRes text: Int)
+        fun showMessage(message: Int)
 
         fun showProgress(){}
 

@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
     <fragment
         android:id="@+id/nav_host_fragment"
         android:name="androidx.navigation.fragment.NavHostFragment"
@@ -12,4 +13,15 @@
         app:defaultNavHost="true"
         app:navGraph="@navigation/main_graph" />
 
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvNoInternet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/message_no_internet"
+        android:textAppearance="@style/TextNoInternet"
+        android:layout_gravity="top"
+        android:visibility="gone"
+        android:background="@color/colorAccent"
+        android:gravity="center"
+        />
 </FrameLayout>

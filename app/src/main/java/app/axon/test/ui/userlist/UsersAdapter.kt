@@ -5,7 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import app.axon.test.R
-import app.axon.test.utills.ImageLoader
+import app.axon.test.utils.ImageLoader
 import kotlinx.android.synthetic.main.user_item.view.*
 
 
@@ -24,8 +24,6 @@ class UsersAdapter : RecyclerView.Adapter<UsersAdapter.ViewHolder>() {
         val model = items[position]
         holder.bind(model)
     }
-
-
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         fun bind(user: UserModel){

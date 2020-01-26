@@ -1,4 +1,4 @@
-package app.axon.test.api.constants
+package app.axon.test.constants
 
 import app.axon.test.BuildConfig
 

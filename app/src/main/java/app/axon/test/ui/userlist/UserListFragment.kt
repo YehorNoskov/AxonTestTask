@@ -7,7 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import app.axon.test.R
-import app.axon.test.api.constants.BundleKeys
+import app.axon.test.api.services.NetworkService
+import app.axon.test.constants.BundleKeys
 import app.axon.test.ui.base.BaseFragment
 import app.axon.test.ui.base.PaginationScrollListener
 import kotlinx.android.synthetic.main.fragment_user_list.*
@@ -19,18 +20,16 @@ class UserListFragment : BaseFragment<UserListContract.Presenter>(), UserListCon
     private val isLoading = false
 
 
-
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        val presenter =
-            parentActivity?.getRetrofitClient()?.let { UserListPresenter(it) }
+        val presenter = UserListPresenter(NetworkService())
         this.presenter = presenter
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+            inflater: LayoutInflater,
+            container: ViewGroup?,
+            savedInstanceState: Bundle?
     ): View? {
         parentActivity?.title = getString(R.string.title_home)
         return inflater.inflate(R.layout.fragment_user_list, container, false)
@@ -75,6 +74,7 @@ class UserListFragment : BaseFragment<UserListContract.Presenter>(), UserListCon
             swipeContainer.isRefreshing = false
         }
     }
+
     private fun getPagination(llm: LinearLayoutManager): PaginationScrollListener {
         return object : PaginationScrollListener(llm) {
             override fun loadMoreItems() {
@@ -87,8 +87,8 @@ class UserListFragment : BaseFragment<UserListContract.Presenter>(), UserListCon
         }
     }
 
-    private fun initClickListeners(){
-        usersAdapter.setClickListener(object : UsersAdapter.ClickListener{
+    private fun initClickListeners() {
+        usersAdapter.setClickListener(object : UsersAdapter.ClickListener {
             override fun onItemClicked(userModel: UserModel) {
                 val bundle = Bundle()
                 bundle.putParcelable(BundleKeys.USER_INFO, userModel)

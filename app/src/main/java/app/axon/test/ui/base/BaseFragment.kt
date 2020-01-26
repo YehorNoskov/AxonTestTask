@@ -1,12 +1,8 @@
 package app.axon.test.ui.base
 
-import android.content.Intent
-import android.provider.Settings
-import android.view.View
 import androidx.fragment.app.Fragment
 import app.axon.test.R
 import app.axon.test.ui.activity.MainActivity
-import com.google.android.material.snackbar.Snackbar
 
 
 open class BaseFragment<P : BaseContract.Presenter<*>> : Fragment(), StandartDialogs,
@@ -37,7 +33,7 @@ open class BaseFragment<P : BaseContract.Presenter<*>> : Fragment(), StandartDia
     }
 
     override fun showToast(message: String, length: Int) {
-        parentActivity!!.showToast(message, length)
+        parentActivity?.showToast(message, length)
     }
 
     override fun showMessage(message: String) {
@@ -45,9 +41,9 @@ open class BaseFragment<P : BaseContract.Presenter<*>> : Fragment(), StandartDia
         parentActivity?.showMessage(message)
     }
 
-    override fun showMessage(text: Int) {
+    override fun showMessage(message: Int) {
         hideProgress()
-        parentActivity?.showMessage(text)
+        parentActivity?.showMessage(message)
     }
 
     override fun showError() {
@@ -55,11 +51,7 @@ open class BaseFragment<P : BaseContract.Presenter<*>> : Fragment(), StandartDia
     }
 
     override fun showNoInternetConnection() {
-        Snackbar.make(view!!, getString(R.string.message_no_internet), Snackbar.LENGTH_LONG)
-                .setAction(getString(R.string.title_wireless_settings)) { view1: View? ->
-                    val myIntent = Intent(Settings.ACTION_WIRELESS_SETTINGS)
-                    startActivity(myIntent)
-                }.show()
+        parentActivity?.setConnectionState(false)
     }
 
 }

@@ -1,4 +1,4 @@
-package app.axon.test.utills
+package app.axon.test.utils
 
 import androidx.appcompat.widget.AppCompatEditText
 

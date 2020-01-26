@@ -1,7 +1,6 @@
 package app.axon.test.ui.base
 
-
-import app.axon.test.utills.NoConnectivityException
+import app.axon.test.utils.NoConnectivityException
 import io.reactivex.disposables.CompositeDisposable
 import retrofit2.HttpException
 import java.net.ConnectException
@@ -35,16 +34,10 @@ abstract class BaseApiPresenter<V : BaseContract.View> : BasePresenter<V>(), Bas
 
     protected fun parseError(throwable: Throwable) {
         throwable.printStackTrace()
-        if (throwable is NoConnectivityException
-                || throwable is ConnectException
-                || throwable is UnknownHostException) {
-            notifyInternetError()
+        if (throwable is ConnectException || throwable is UnknownHostException) {
+            view?.showNoInternetConnection()
         } else {
             view?.showError()
         }
-    }
-
-    private fun notifyInternetError() {
-        view?.showNoInternetConnection()
     }
 }

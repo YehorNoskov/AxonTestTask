@@ -1,7 +1,7 @@
 package app.axon.test.ui.userdetails
 
 import android.os.Bundle
-import app.axon.test.api.constants.BundleKeys
+import app.axon.test.constants.BundleKeys
 import app.axon.test.ui.base.BaseApiPresenter
 import app.axon.test.ui.userlist.UserModel
 
@@ -13,7 +13,7 @@ class UserDetailsPresenter :
         if (bundle != null) {
             val userModel = bundle.getParcelable(BundleKeys.USER_INFO) as UserModel?
             if (userModel != null) {
-                userModel.userAvatarMedium?.let { view?.showUserAvatar(it) }
+                userModel.userAvatarLarge?.let { view?.showUserAvatar(it) }
                 userModel.userName?.let { view?.showUserName(it) }
                 userModel.userGender?.let { view?.showUserGender(it) }
                 userModel.userDob?.let { view?.showUserDob(it) }

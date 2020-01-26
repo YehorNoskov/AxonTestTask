@@ -3,8 +3,6 @@ package app.axon.test.ui.userdetails
 import android.os.Bundle
 import app.axon.test.ui.base.BaseApiContract
 import app.axon.test.ui.base.BaseContract
-import app.axon.test.ui.userlist.UserModel
-import java.util.*
 
 
 class UserDetailsContract {

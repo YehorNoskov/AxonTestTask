@@ -9,9 +9,9 @@ import android.view.View
 import android.view.ViewGroup
 import app.axon.test.R
 import app.axon.test.ui.base.BaseFragment
-import app.axon.test.utills.ImageLoader
-import app.axon.test.utills.setDobFormat
-import app.axon.test.utills.setNoActive
+import app.axon.test.utils.ImageLoader
+import app.axon.test.utils.setDobFormat
+import app.axon.test.utils.setNoActive
 import kotlinx.android.synthetic.main.fragment_user_details.*
 
 
@@ -72,8 +72,8 @@ class UserDetailsFragment : BaseFragment<UserDetailsContract.Presenter>(), UserD
 
 
     private fun initClickListeners() {
-        edxCell.onFocusChangeListener = View.OnFocusChangeListener { p0, p1 -> callIntent(edxCell.text.toString()) }
-        edxPhone.onFocusChangeListener = View.OnFocusChangeListener { p0, p1 -> callIntent(edxCell.text.toString()) }
+        edxCell.onFocusChangeListener = View.OnFocusChangeListener { _, _ -> callIntent(edxCell.text.toString()) }
+        edxPhone.onFocusChangeListener = View.OnFocusChangeListener { _, _ -> callIntent(edxCell.text.toString()) }
     }
 
 
