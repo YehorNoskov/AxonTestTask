@@ -2,7 +2,6 @@ package app.axon.test.ui.activity
 
 import app.axon.test.api.services.ConnectionService
 import app.axon.test.ui.base.BaseApiPresenter
-import app.axon.test.utils.NoConnectivityException
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 

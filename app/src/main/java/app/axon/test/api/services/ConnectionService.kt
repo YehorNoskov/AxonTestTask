@@ -39,7 +39,7 @@ class ConnectionService(private val context: Context) {
 
     private fun getConnectionManager(): ConnectivityManager? {
         if (connectivityManager == null) {
-            connectivityManager = context.applicationContext.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+            connectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
         }
         return connectivityManager
     }

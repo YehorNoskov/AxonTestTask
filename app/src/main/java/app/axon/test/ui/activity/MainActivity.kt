@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity(), MainContract.View, StandartDialogs {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val presenter = MainPresenter(ConnectionService(applicationContext))
+        val presenter = MainPresenter(ConnectionService(this))
         presenter.attach(this)
 
         connectionReceiver = object : BroadcastReceiver() {

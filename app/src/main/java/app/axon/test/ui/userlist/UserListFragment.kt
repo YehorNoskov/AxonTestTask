@@ -39,17 +39,16 @@ class UserListFragment : BaseFragment<UserListContract.Presenter>(), UserListCon
         super.onViewCreated(view, savedInstanceState)
         presenter?.attach(this)
         presenter?.subscribe()
-        presenter?.getJobsList(false)
 
         rvUsers.adapter = usersAdapter
         val llm = LinearLayoutManager(context)
         rvUsers.layoutManager = llm
         rvUsers.addOnScrollListener(getPagination(llm))
 
+        presenter?.getJobsList(false)
         swipeContainer.setOnRefreshListener { presenter?.refresh() }
 
         initClickListeners()
-
     }
 
 

@@ -1,8 +1,6 @@
 package app.axon.test.ui.base
 
-import app.axon.test.utils.NoConnectivityException
 import io.reactivex.disposables.CompositeDisposable
-import retrofit2.HttpException
 import java.net.ConnectException
 import java.net.UnknownHostException
 
